@@ -1,0 +1,28 @@
+name: React CRA
+on: pull_request
+jobs:
+  React-CI:
+    name: Menjalankan Linter di React CRA
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Install Node.js dependencies
+        run: npm install
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v1
+        with:
+          prettier: true
+
+      - name: Run Test
+        run: CI=true npm run test
+
+      - name: Run Build
+        run: npm run build
