@@ -1,5 +1,5 @@
 name: React CRA
-on: pull_request
+on: push
 jobs:
   React-CI:
     name: Menjalankan Linter di React CRA
@@ -21,8 +21,8 @@ jobs:
         with:
           prettier: true
 
-      - name: Run Test
-        run: CI=true npm run test
+      # - name: Run Test
+      #   run: CI=true npm run test
 
-      - name: Run Build
-        run: npm run build
+      # - name: Run Build
+      #   run: npm run build
